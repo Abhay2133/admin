@@ -55,20 +55,14 @@ npm run preview
 
 ## 📦 Automated Deployment (CI/CD)
 
-The project includes a GitHub Actions CI/CD pipeline ([deploy.yml](.github/workflows/deploy.yml)) to build and deploy to Vercel on commits to the `main` branch.
+The project includes a GitHub Actions CI/CD pipeline ([deploy.yml](.github/workflows/deploy.yml)) to build and deploy to **GitHub Pages** automatically on commits to the `main` branch.
 
 ### 🔑 Configuration
 
-Configure the following secrets and variables in your GitHub repository:
+1. **Enable GitHub Pages**:
+   Go to your GitHub Repository > **Settings > Pages** and set:
+   - **Source**: `GitHub Actions`
+2. **Configure Environment Variables**:
+   Add the following under **Settings > Secrets and variables > Actions > Variables** (or configure a `github-pages` environment and add variables there):
+   - `VITE_API_BASE_URL`: The production API server URL.
 
-#### 📂 GitHub Environment Variables (Variables)
-Add under **Settings > Secrets and variables > Actions > Variables** (or under `production` Environment variables):
-
-- `VITE_API_BASE_URL`: The production API server URL.
-
-#### 🔒 GitHub Secrets
-Add under **Settings > Secrets and variables > Actions > Secrets**:
-
-- `VERCEL_TOKEN`: Your Vercel API Personal Access Token.
-- `VERCEL_ORG_ID`: Your Vercel account or organization ID.
-- `VERCEL_PROJECT_ID`: The project ID of your deployment target in Vercel.
